@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # Create your views here.
 def home_view(request: HttpRequest):
-    projects = Project.objects.all()
+    projects = Project.objects.all()[0:3]
 
     return render(request, "main/index.html", {"projects": projects})
 
