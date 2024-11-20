@@ -6,9 +6,10 @@
 }
 
 .projects-cards img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     min-height: 100%;
+    max-height: 185px;
     border: 1px solid #333;
 }
 
