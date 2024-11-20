@@ -87,3 +87,8 @@ def delete_project_view(request: HttpRequest, project_id):
         return redirect("dashboard:dashboard_projects_view")
 
     return render(request, "dashboard/projects.html")
+
+def all_projects_view(request: HttpRequest):
+    projects = Project.objects.all()
+
+    return render(request, "main/all_projects.html", {"projects": projects})

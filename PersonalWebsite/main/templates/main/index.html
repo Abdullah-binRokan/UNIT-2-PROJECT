@@ -59,7 +59,12 @@
 <!-- start of featured projects -->
 <section>
     <div class="container">
-        <h3>Featured Projects</h3>
+        <div class="d-flex align-items-center justify-content-between">
+            <h3>Featured Projects</h3>
+            <div class="SMN_effect-14">
+                <a href="{% url 'main:all_projects_view' %}">More <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
         <div class="row">
             {% for project in projects %}
             <div class="col-12 col-md-6 col-lg-4">

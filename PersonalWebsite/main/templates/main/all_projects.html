@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Abdullah bin Rokan | Add project{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/all_project.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- start of all projects -->
+<section>
+    <div class="container">
+        <h3>Featured Projects</h3>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- link trigger modal -->
+                <div class="projects-cards SMN_effect-14">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ project.id }}">
+                        <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                        <h5>{{ project.name }}</h5>
+                    </a>
+                </div>
+            </div> <!-- endo of col-->
+            <!-- start of Modal -->
+            <div class="modal fade" id="modal-{{ project.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ project.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="ModalLabel-{{ project.id }}">{{ project.name }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ project.description }}</p>
+                            <div class="modal-img">
+                                <img src="{{ project.details_image.url }}" alt="{{ project.name }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of Modal -->
+             {% endfor %}
+        </div> <!-- end of row-->
+    </div> <!-- end of container div -->
+</section>
+<!-- end of all projects -->
+{% endblock %}
